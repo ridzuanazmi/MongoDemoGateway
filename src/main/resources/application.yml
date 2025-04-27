@@ -1,0 +1,14 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: MongoDemoGateway
+  cloud:
+    gateway:
+      routes:
+      - id: user-service
+        uri: http://localhost:8080
+        predicates:
+        - Path=/users/**
+jwt:
+  secret: this-is-my-super-secure-secret-key-which-is-very-long-12345  # Use a strong secret in production
